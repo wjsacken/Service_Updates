@@ -1,0 +1,80 @@
+name: Run Service Update Scripts Automation
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # This runs once a day at midnight  # This runs every 4 hours
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # Step 4: Delete the old customers.json file (if exists)
+      - name: Delete old customers.json file
+        run: |
+          if [ -f customers.json ]; then
+            rm customers.json
+            echo "Deleted old customers.json"
+          else
+            echo "No old customers.json to delete"
+          fi
+
+      # Step 5: Run the customers.py script with the API token from secrets
+      - name: Run customers.py script
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}  # Passing the API_TOKEN secret
+        run: python customers.py
+
+      # Step 6: Check if customers.json exists
+      - name: Check if customers.json exists
+        run: |
+          if [ ! -f customers.json ]; then
+            echo "Error: customers.json not found!"
+            exit 1
+          fi
+
+      # Step 7: Delete the old enriched_premises_data.json file (if exists)
+      - name: Delete old enriched_premises_data.json file
+        run: |
+          if [ -f enriched_premises_data.json ]; then
+            rm enriched_premises_data.json
+            echo "Deleted old enriched_premises_data.json"
+          else
+            echo "No old enriched_premises_data.json to delete"
+          fi
+
+      # Step 8: Run the data.py script with the API token from secrets
+      - name: Run data.py script
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}  # Passing the API_TOKEN secret
+        run: python data.py
+
+      # Step 9: Check if enriched_premises_data.json exists
+      - name: Check if enriched_premises_data.json exists
+        run: |
+          if [ ! -f enriched_premises_data.json ]; then
+            echo "Error: enriched_premises_data.json not found!"
+            exit 1
+          fi
+
+      # Step 10: Run hub.py script
+      - name: Run hub.py script
+        env:
+          SERVICE_UPDATE_INTEGRATION: ${{ secrets.SERVICE_UPDATE_INTEGRATION }} 
+        run: python hub.py
