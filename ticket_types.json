@@ -1,0 +1,122 @@
+{
+    "items": [
+      {
+        "id": 1,
+        "name": "Installation",
+        "enabled": true
+      },
+      {
+        "id": 2,
+        "name": "Provisioning",
+        "enabled": true
+      },
+      {
+        "id": 4,
+        "name": "Change Service",
+        "enabled": true
+      },
+      {
+        "id": 5,
+        "name": "Civil",
+        "enabled": true
+      },
+      {
+        "id": 6,
+        "name": "Fibre Break",
+        "enabled": true
+      },
+      {
+        "id": 7,
+        "name": "Service Down",
+        "enabled": true
+      },
+      {
+        "id": 8,
+        "name": "Cancellation",
+        "enabled": true
+      },
+      {
+        "id": 9,
+        "name": "Light Levels",
+        "enabled": true
+      },
+      {
+        "id": 10,
+        "name": "Power Down",
+        "enabled": true
+      },
+      {
+        "id": 11,
+        "name": "Maintenance",
+        "enabled": true
+      },
+      {
+        "id": 12,
+        "name": "Other",
+        "enabled": true
+      },
+      {
+        "id": 13,
+        "name": "NID Installation",
+        "enabled": true
+      },
+      {
+        "id": 16,
+        "name": "Swapout Device",
+        "enabled": true
+      },
+      {
+        "id": 32,
+        "name": "Recover Device",
+        "enabled": true
+      },
+      {
+        "id": 64,
+        "name": "Deprovisioning",
+        "enabled": true
+      },
+      {
+        "id": 66,
+        "name": "Speed Test",
+        "enabled": true
+      },
+      {
+        "id": 128,
+        "name": "Service Activation (Without Installation)",
+        "enabled": true
+      },
+      {
+        "id": 256,
+        "name": "Change Service Provider",
+        "enabled": true
+      },
+      {
+        "id": 512,
+        "name": "Fault",
+        "enabled": true
+      },
+      {
+        "id": 1024,
+        "name": "Repair",
+        "enabled": true
+      },
+      {
+        "id": 2048,
+        "name": "L3 Configuration",
+        "enabled": true
+      },
+      {
+        "id": 4096,
+        "name": "Pre-Order",
+        "enabled": true
+      },
+      {
+        "id": 16384,
+        "name": "Relocation",
+        "enabled": true
+      }
+    ],
+    "page": 1,
+    "count": 23,
+    "total": 23
+  }
