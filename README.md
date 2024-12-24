@@ -15,8 +15,6 @@
   - [hub.py](#hubpy)
 - [Data Flow](#data-flow)
 - [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ---
